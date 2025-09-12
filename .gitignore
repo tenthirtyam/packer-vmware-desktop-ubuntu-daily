@@ -1,0 +1,23 @@
+# MacOS
+## Ignore desktop services files.
+**/.DS_Store
+
+# IDEs
+## Ignore IDE configuration directories.
+.idea/
+.vscode/
+
+# Packer
+## Ignore cache directories.
+packer_cache/
+
+## Ignore crash log files.
+crash.log
+
+## Ignore outputs.
+
+output/
+## Ignore .iso files.
+
+iso/*.iso
+iso/*.lock
