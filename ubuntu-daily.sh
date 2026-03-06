@@ -1,8 +1,22 @@
 #!/usr/bin/env bash
 # SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: 2025 Ryan Johnson
+# SPDX-FileCopyrightText: 2025-2026 Ryan Johnson
 
 set -euo pipefail
+
+# Prepend known VMware binary directories to PATH so 'vmware-vmx' can be found
+# regardless of whether the user has manually added it to their PATH.
+setup_vmware_path() {
+	local vmware_paths=(
+		"/Applications/VMware Fusion.app/Contents/Library"
+		"/usr/lib/vmware/bin"
+	)
+	for dir in "${vmware_paths[@]}"; do
+		if [[ -d "${dir}" && ":${PATH}:" != *":${dir}:"* ]]; then
+			export PATH="${dir}:${PATH}"
+		fi
+	done
+}
 
 # Check if a required command is available in PATH and exit if not found.
 require_command() {
@@ -19,13 +33,13 @@ detect_hypervisor() {
 		return 1
 	fi
 
-	version_output=$(${vmx_path} -v 2>&1)
+	version_output=$("${vmx_path}" -v 2>&1)
 	if [[ -z ${version_output} ]]; then
 		echo "[ERROR] Error retrieving version information. Ensure VMware Fusion or VMware Workstation is operational."
 		return 1
 	fi
 
-	version=$(echo "${version_output}" | tr -d '\n' | grep -oE "VMware (Fusion|Workstation) [0-9]+\.[0-9]+\.[0-9]+ build-[0-9]+")
+	version=$(echo "${version_output}" | grep -oE "VMware (Fusion|Workstation) [0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)?( build-[0-9]+| Release)?" | head -n 1)
 	if [[ -z ${version} ]]; then
 		echo "[ERROR] Error parsing version from output: ${version_output}"
 		return 1
@@ -253,6 +267,8 @@ main() {
 			;;
 		esac
 	done
+
+	setup_vmware_path
 
 	for cmd in "${COMMANDS[@]}"; do
 		require_command "${cmd}"
