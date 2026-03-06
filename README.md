@@ -1,6 +1,6 @@
 <!--
 SPDX-License-Identifier: MIT
-SPDX-FileCopyrightText: 2025 Ryan Johnson
+SPDX-FileCopyrightText: 2025-2026 Ryan Johnson
 -->
 
 # Ubuntu Server Daily Build for VMware Desktop Hypervisors
@@ -152,7 +152,7 @@ Contributions are welcome! Please feel free to submit issues, feature requests, 
 
 ## License
 
-Copyright &copy; 2025 Ryan Johnson
+Copyright &copy; 2025-2026 Ryan Johnson
 
 Licensed under the [MIT License][license].
 

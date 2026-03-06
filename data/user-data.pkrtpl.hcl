@@ -1,6 +1,6 @@
 #cloud-config
 # SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: 2025 Ryan Johnson
+# SPDX-FileCopyrightText: 2025-2026 Ryan Johnson
 
 autoinstall:
   version: 1
