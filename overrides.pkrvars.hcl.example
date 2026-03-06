@@ -1,34 +1,28 @@
 # SPDX-License-Identifier: MIT
-# SPDX-FileCopyrightText: 2025 Ryan Johnson
+# SPDX-FileCopyrightText: 2025-2026 Ryan Johnson
 
 # Ubuntu Server Daily Build - User Overrides Example
 # Copy this file to "overrides.pkrvars.hcl" and customize the values below
 # Usage: The script will automatically detect and use overrides.pkrvars.hcl
 
 # VM Hardware Configuration
-vm_cpu = 4                    # Number of CPUs (default: 2)
-vm_cpu_cores = 2              # CPU cores per socket (default: 1)
-vm_memory = 8192              # Memory in MB (default: 4096)
-vm_disk_size = 40960          # Disk size in MB (default: 20480)
+# vm_cpu = 2                    # Number of CPUs (default: 2)
+# vm_cpu_cores = 1              # CPU cores per socket (default: 1)
+# vm_memory = 4096              # Memory in MB (default: 4096)
+# vm_disk_size = 20480          # Disk size in MB (default: 20480)
 
 # VM Settings
-vm_headless_enabled = true    # Run build in headless mode (default: false)
-# firmware = "bios"           # Firmware type: "efi" or "bios" (default: "efi", auto for arm64)
+# vm_headless_enabled = true    # Run build in headless mode (default: false)
+# firmware = "efi"                # Firmware type: "efi" or "bios" (default: "efi", auto for arm64)
 
 # Network and Locale
-# locale = "en_GB"            # System locale (default: "en_US")
-# keyboard_layout = "uk"      # Keyboard layout (default: "us")
-# timezone = "Europe/London"  # System timezone (default: "UTC")
+# locale = "en_US"              # System locale (default: "en_US")
+# keyboard_layout = "us"        # Keyboard layout (default: "us")
+# timezone = "UTC"              # System timezone (default: "UTC")
 
 # SSH Configuration
-ssh_timeout = "30m"           # SSH connection timeout (default: "20m")
+# ssh_timeout = "20m"           # SSH connection timeout (default: "20m")
 
 # Build Configuration
-boot_wait = "10s"             # Time to wait before typing boot command (default: "5s")
-shutdown_timeout = "20m"      # Time to wait for shutdown (default: "15m")
-
-# High-performance build example:
-# vm_cpu = 8
-# vm_memory = 16384
-# vm_disk_size = 81920
-# vm_headless_enabled = true
+# boot_wait = "5s"              # Time to wait before typing boot command (default: "5s")
+# shutdown_timeout = "15m"      # Time to wait for shutdown (default: "15m")
