@@ -1,6 +1,6 @@
 /*
     SPDX-License-Identifier: MIT
-    SPDX-FileCopyrightText: 2025 Ryan Johnson
+    SPDX-FileCopyrightText: 2025-2026 Ryan Johnson
 
     Description:
     Ubuntu Server Daily Build build definition.
@@ -14,8 +14,8 @@ packer {
   required_version = "~> 1"
   required_plugins {
     vmware = {
-      source  = "github.com/hashicorp/vmware"
-      version = "~> 1"
+      source  = "github.com/vmware/vmware"
+      version = "~> 2"
     }
   }
 }
@@ -59,7 +59,7 @@ variable "timezone" {
 variable "firmware" {
   type        = string
   description = "The firmware for the virtual machine."
-  default     = "efi" // Default firmware is set to 'efi'.
+  default     = "efi"
   // For ARM64, the firmware is automatically set to 'efi'.
 }
 
@@ -170,8 +170,8 @@ variable "vm_disk_size" {
   type        = number
   description = "The disk size for the virtual machine in MB."
   validation {
-    condition     = var.vm_disk_size >= 10024
-    error_message = "The disk size must be at least 10024 MB."
+    condition     = var.vm_disk_size >= 10240
+    error_message = "The disk size must be at least 10240 MB."
   }
   default = 20480
 }
