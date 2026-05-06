@@ -1,0 +1,30 @@
+---
+name: Lock
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+  lock:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+      - uses: dessant/lock-threads@7266a7ce5c1df01b1c6db85bf8cd86c737dadbe7 # v6.0.0
+        with:
+          github-token: '${{ secrets.GITHUB_TOKEN }}'
+          issue-comment: |
+            I'm locking this issue as it has been closed for 30 days.
+
+            — [Ryan Johnson](https://github.com/tenthirtyam)
+          issue-inactive-days: 30
+          pr-comment: |
+            I'm locking this pull request as it has been closed for 30 days.
+
+            — [Ryan Johnson](https://github.com/tenthirtyam)
+          pr-inactive-days: 30
