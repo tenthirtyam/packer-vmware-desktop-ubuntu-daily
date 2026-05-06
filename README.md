@@ -141,10 +141,6 @@ The build process follows these steps:
 
 After successful completion, you'll find the virtual machine in `output/`.
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit issues, feature requests, or pull requests.
-
 ## Sponsor
 
 [![Sponsor](https://img.shields.io/badge/Sponsor-EA4AAA?style=for-the-badge&logo=githubsponsors&logoColor=white)][sponsor]&nbsp;&nbsp;
