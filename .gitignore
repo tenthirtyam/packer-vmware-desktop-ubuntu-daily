@@ -15,9 +15,8 @@ packer_cache/
 crash.log
 
 ## Ignore outputs.
-
 output/
-## Ignore .iso files.
 
+## Ignore .iso files.
 iso/*.iso
 iso/*.lock
