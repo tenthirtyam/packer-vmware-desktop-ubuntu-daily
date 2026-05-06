@@ -1,0 +1,42 @@
+---
+# These settings are synced to GitHub by the Probot Settings app.
+# Reference: https://probot.github.io/apps/settings/.
+
+repository:
+  name: packer-vmware-desktop-ubuntu-daily
+  description: Ubuntu Server Daily Build for VMware Desktop Hypervisors.
+  topics: packer, ubuntu, vmware-workstation, vmware-fusion
+  archived: false
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  has_downloads: false
+  default_branch: develop
+  allow_squash_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  delete_branch_on_merge: true
+  enable_automated_security_fixes: true
+  enable_vulnerability_alerts: true
+labels:
+  - name: bug
+    color: '#d73a4a'
+    description: Bug
+  - name: chore
+    color: '#84D396'
+    description: Chore
+  - name: dependencies
+    color: '#84D396'
+    description: Dependencies
+  - name: documentation
+    color: '#0075ca'
+    description: Documentation
+  - name: enhancement
+    color: '#0075ca'
+    description: Enhancement
+  - name: github-actions
+    color: '#000000'
+    description: GitHub Actions
+  - name: stale
+    color: '#e69138'
+    description: Stale
