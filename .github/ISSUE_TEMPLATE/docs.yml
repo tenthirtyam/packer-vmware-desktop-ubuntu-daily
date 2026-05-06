@@ -1,0 +1,24 @@
+---
+name: Documentation
+description: Found a typo or something that needs clarification?
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: >
+        When filing a documentation issue, please include the following information.
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why should we update our docs or examples?
+    validations:
+      required: false
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      description: What should we do instead?
+    validations:
+      required: false

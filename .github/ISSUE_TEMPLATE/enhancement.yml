@@ -1,0 +1,31 @@
+---
+name: Enhancement
+description: Is something critical missing?
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: >
+        When filing an enhancement request, please include the following information.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide an overview of the enhancement.
+    validations:
+      required: true
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case(s)
+      description: Provide any relevant use-cases.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Provide any references.
+    validations:
+      required: false
