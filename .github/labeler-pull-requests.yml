@@ -1,0 +1,26 @@
+---
+chore:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**/*"
+          - ".gitignore"
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "package-lock.json"
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.md"
+          - "examples/**/*"
+          - "docs/**/*"
+github-actions:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**/*"
+needs-review:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**"
+
