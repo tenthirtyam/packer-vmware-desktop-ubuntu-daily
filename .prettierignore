@@ -1,0 +1,6 @@
+# Formatted by packer fmt, not prettier.
+*.hcl
+
+# Lock files and binary artifacts.
+iso/
+output/
