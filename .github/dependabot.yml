@@ -1,0 +1,19 @@
+---
+version: 2
+
+updates:
+  # GitHub Actions updates.
+  - package-ecosystem: "github-actions"
+    directory: "/.github/workflows"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore(gh):"
+      include: "scope"
+    labels:
+      - "chore"
+      - "github-actions"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
