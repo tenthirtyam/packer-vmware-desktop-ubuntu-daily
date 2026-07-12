@@ -1,0 +1,66 @@
+---
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: Ryan Johnson
+
+version: "3"
+
+vars:
+  PACKER_DIR: src
+
+tasks:
+  default:
+    desc: Show available tasks
+    cmds:
+      - task --list
+
+  format:
+    aliases: [fmt]
+    desc: Format Packer templates and Prettier-supported files
+    cmds:
+      - packer fmt -write -recursive {{.PACKER_DIR}}
+      - prettier --write .
+
+  format-check:
+    desc: Check formatting (Packer + Prettier)
+    cmds:
+      - packer fmt -check -recursive {{.PACKER_DIR}}
+      - prettier --check .
+
+  lint:
+    desc: Run shellcheck on the build script
+    cmds:
+      - shellcheck {{.PACKER_DIR}}/ubuntu-daily.sh
+
+  init:
+    desc: Initialize Packer plugins
+    cmds:
+      - packer init {{.PACKER_DIR}}
+
+  validate:
+    desc: Validate Packer configuration
+    deps: [init]
+    cmds:
+      - packer validate -var-file={{.PACKER_DIR}}/validate.pkrvars.hcl {{.PACKER_DIR}}
+
+  build:
+    desc: Build the virtual machine image
+    cmds:
+      - "{{.PACKER_DIR}}/ubuntu-daily.sh {{.CLI_ARGS}}"
+
+  rebuild:
+    desc: Remove output and build from scratch
+    cmds:
+      - task: clean
+      - task: build
+        vars:
+          CLI_ARGS: "{{.CLI_ARGS}}"
+
+  clean:
+    desc: Remove built virtual machine output
+    cmds:
+      - rm -rf output && mkdir -p output
+
+  clean-iso:
+    desc: Remove downloaded ISO files
+    cmds:
+      - rm -rf iso && mkdir -p iso

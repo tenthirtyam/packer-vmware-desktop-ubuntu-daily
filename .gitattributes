@@ -1,0 +1,13 @@
+# Default.
+*                       text=auto eol=lf
+
+# Normalize to LF.
+*.hcl                   text eol=lf
+*.json                  text eol=lf
+*.md                    text eol=lf
+*.sh                    text eol=lf
+LICENSE                 text eol=lf
+NOTICE                  text eol=lf
+
+# Binary files.
+*.iso                   binary
